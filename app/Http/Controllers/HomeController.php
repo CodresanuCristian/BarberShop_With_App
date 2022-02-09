@@ -41,6 +41,7 @@ class HomeController extends Controller
             'day_of_week' => $day_of_week,
             'start_day' => $start_day,
             'month' => $current_month,
+            
         ]);
     }
 

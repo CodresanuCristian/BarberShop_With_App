@@ -27,7 +27,7 @@ class CreateUserAppointmentsTable extends Migration
             $table->boolean('package_4')->default(false);
             $table->boolean('package_5')->default(false);
             $table->boolean('package_6')->default(false);
-            $table->float('total_price');
+            $table->smallInteger('total_price');
             $table->timestamps();
         });
     }

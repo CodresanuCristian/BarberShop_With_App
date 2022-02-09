@@ -19,6 +19,5 @@ Route::get('/', function () {
 });
 Auth::routes();
 
-Route::get('/admin', [HomeController::class, 'index'])->name('home');
-Route::get('{new_month}', [HomeController::class, 'ChangeMonth']);
+Route::get('/admin', [HomeController::class, 'index']);
 

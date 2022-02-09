@@ -1,0 +1,114 @@
+@font-face {
+    font-family: 'Vintage';
+    src: url('font/VintageParty.ttf');
+}
+
+@font-face {
+    font-family: 'Quicksand';
+    src: url('font/Quicksand_Book.otf');
+}
+
+
+/* ORANGE */
+/* #ffa500 */
+/* #e69500 */
+/* #cc8500 */
+
+/* WHITE */
+/* #E8E8E8 */
+/* #F0F0F0 */
+
+.body, body{
+    background: rgb(80,80,80);
+    background: radial-gradient(circle, rgba(80,80,80,1) 0%, rgba(76,76,77,1) 10%, rgba(61,61,61,1) 55%, rgba(54,54,54,1) 70%, rgba(54,54,54,1) 100%);
+    box-sizing: border-box;
+    overflow-x: hidden;
+    color :#E8E8E8;
+}
+
+.header{
+    height: auto;
+    overflow: hidden;
+    position: absolute;
+    top:0;
+    left:0;
+    width:100vw;
+}
+
+.header a, .header span{
+    padding:15px 30px;
+    float:right;
+    background: #cc8500;
+    color:#E8E8E8;
+    text-decoration: none;
+    font-size: 15px;
+    border-radius: 5px;
+    margin:15px;
+    font-weight: bold;
+    transition: all .4s ease;
+}
+
+.header span{
+    float:left;
+    background: none;
+    font-size: 17px;
+}
+
+.header a:hover{
+    color:#F0F0F0;
+    background: #e69500;
+}
+
+.calendar-header{
+    width:80vw;
+    margin:auto;
+}
+
+.calendar-header a img{
+    height:45px;
+    cursor:pointer;
+    transition: all .3s ease-in;
+}
+
+.calendar-header h1{
+    font-family: 'Vintage';
+    font-size:60px;
+    color: #E8E8E8;
+    text-align:center;
+    margin:100px 10px 0px 10px;
+}
+
+.calendar-header h2{
+    font-family: 'Quicksand';
+}
+
+table{
+    margin:auto;
+    border:2px solid #E8E8E8;
+}
+
+table tr, table th, table td{
+    border:1px solid #E8E8E8;
+}
+
+table th{
+    width: 200px;
+    padding:20px 0px;
+    text-align:center;
+    background: #cc8500;
+}
+
+table td{
+    height:80px;
+    font-size: 18px;
+    padding:0px 20px;
+}
+
+.active{
+    cursor: pointer;
+}
+
+.today{
+    color: darkorange;
+    font-weight: bold;
+}

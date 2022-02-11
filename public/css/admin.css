@@ -110,6 +110,11 @@ table td{
 }
 
 .today{
+    border: 3px solid #cc8500;
+    font-weight: bold;
+}
+
+.app-day{
     color: darkorange;
     font-weight: bold;
 }
@@ -173,4 +178,11 @@ table td{
     color:#F0F0F0;
     background: #cc8500;
     border:1px solid #cc8500;
+}
+
+#no-app{
+    display:none;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-style: 'Quicksand';
 }

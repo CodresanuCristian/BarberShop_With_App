@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class UserAppointment extends Model
 {
     use HasFactory;
+
+    public $table = 'user_appointments';
 }

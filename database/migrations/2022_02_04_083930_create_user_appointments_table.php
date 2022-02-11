@@ -19,6 +19,9 @@ class CreateUserAppointmentsTable extends Migration
             $table->string('client_name');
             $table->string('client_phone');
             $table->date('date');
+            $table->string('year');
+            $table->string('month');
+            $table->string('day');
             $table->time('start_at');
             $table->time('end_at');
             $table->boolean('package_1')->default(false);

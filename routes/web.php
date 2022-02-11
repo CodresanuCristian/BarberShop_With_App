@@ -20,4 +20,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/admin', [HomeController::class, 'index']);
+Route::get('/get-appointment-data', [HomeController::class, 'getAppointmentData']);
+Route::get('/get-appointment-days', [HomeController::class, 'getAppointmentDays']);
 

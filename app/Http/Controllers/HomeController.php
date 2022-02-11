@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use App\Models\UserAppointment;
 
 class HomeController extends Controller
 {
@@ -42,5 +43,23 @@ class HomeController extends Controller
             'start_day' => $start_day,
             'month' => Carbon::today()->month,
         ]);
+    }
+
+    public function getAppointmentData(Request $request)
+    {
+        $appData = UserAppointment::where('year', $request['year'])->where('month', $request['month'])->where('day', $request['day'])->get();
+        $appData = $appData->sortBy('start_at')->values();
+
+        return response()->json([
+            'app' => $appData, 
+            'appCount' => $appData->count()
+        ]);
+    }
+
+    public function getAppointmentDays(Request $request)
+    {
+        $appDays = UserAppointment::where('year', $request['year'])->where('month', $request['month'])->select('day')->get();
+
+        return response()->json(['appDays' => $appDays, 'appDaysCount' => $appDays->count()]);
     }
 }

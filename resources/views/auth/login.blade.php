@@ -68,6 +68,9 @@
                         <a class='login-btn w-full select-none font-bold whitespace-no-wrap p-3 rounded-lg text-base text-center leading-normal no-underline sm:py-4 mt-3 mb-12 text-gray-100 bg-blue-500 hover:bg-blue-700 hover:text-gray-100' href="{{ url('/') }}" >
                             Back to website
                         </a>
+                        {{-- @if (Route::has('register'))
+                            <a class="no-underline hover:underline" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        @endif --}}
                     </div>
                 </form>
 

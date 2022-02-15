@@ -140,8 +140,8 @@ table td{
     padding:40px 10px;
 }
 
-#list-close{
-    height:28px;
+#list-close, #edit-close{
+    height:25px;
     position:absolute;
     top:15px;
     right:10px;
@@ -180,9 +180,113 @@ table td{
     border:1px solid #cc8500;
 }
 
+.mybtn:disabled{
+    color:#ddd;
+    background: transparent;
+    border:1px solid #ddd;
+    cursor:not-allowed;
+}
+
 #no-app{
     display:none;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-style: 'Quicksand';
+    color: #aaa;
+    font-family: Quicksand;
+}
+
+.remove-window{
+    width:40vw;
+    min-height:26vh;
+    overflow: hidden;
+    position: absolute;
+    top:37vh;
+    left:30vw;
+    background-color: rgba(10,10,10,.9);
+    border:1px solid #ddd;
+    border-radius: 10px;
+    display:none;
+}
+
+.edit-window{
+    width:50vw;
+    height:50vh;
+    position: absolute;
+    top:25vh;
+    left:25vw;
+    background-color: rgba(10,10,10,.9);
+    border:1px solid #ddd;
+    border-radius: 10px;
+    display: none;
+    overflow:hidden auto;
+}
+
+.edit-header{
+    position: relative;
+    border-bottom:1px solid #666;
+}
+
+.edit-header h4{
+    margin:15px;
+}
+
+#edit-close{
+    right:15px;
+}
+
+.edit-window form{
+    padding: 40px 50px;
+}
+
+.edit-window form input[type='text'], .edit-window form input[type='tel'], .edit-window form select{
+    height: 30px;
+    background: transparent;
+    border-bottom: 2px solid #888;
+    transition: all .3s ease;
+    color: #bbb;
+    min-width:100px;
+    width:90%;
+}
+
+.edit-window form select{
+    cursor:pointer;
+}
+
+.edit-window form input[type='checkbox']{
+    width: 18px;
+    height: 18px;
+    margin:0px;
+}
+
+.selectpack{
+    cursor:pointer;
+}
+
+.edit-window form .clock{
+    min-width:50px;
+    width:50px;
+}
+
+.edit-window form .date{
+    min-width:60px;
+    width:60px;
+}
+
+.edit-window form p{
+    margin:0;
+    color:#bbb;
+}
+
+.edit-window form select option{
+    color: #222;
+}
+
+.edit-window form input:focus, .edit-window form select:focus {
+    border:none;
+    border-bottom: 2px solid #cc8500;
+    outline: none;
+    color: #eee;
+}
+
+.edit-window form img{
+    height:30px;
+    margin-right: 15px;
 }

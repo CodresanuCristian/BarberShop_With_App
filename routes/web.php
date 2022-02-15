@@ -19,7 +19,9 @@ Route::get('/', function () {
 });
 Auth::routes();
 
-Route::get('/admin', [HomeController::class, 'index']);
+Route::get('/admin', [HomeController::class, 'index'])->name('home');
 Route::get('/get-appointment-data', [HomeController::class, 'getAppointmentData']);
 Route::get('/get-appointment-days', [HomeController::class, 'getAppointmentDays']);
+Route::get('/remove', [HomeController::class, 'removeApp']);
+Route::get('/get-users-data', [HomeController::class, 'getUsersData']);
 

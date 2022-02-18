@@ -88,27 +88,27 @@
             {{-- edit services pack --}}
             <div class='row overflow-hidden mt-4'>
                 <div class='col-xl-2 col-lg-4 col-md-6 col-sm-6 d-flex flex-row justify-content-center align-items-center p-0 my-2 selectpack' id='pack1'>                    
-                    <input class='mx-2' type='checkbox' name='pack1' id='check1'>                    
+                    <input class='mx-2 selectpack' type='checkbox' name='pack1' id='check1'>                    
                     <p>Pack 1</p>
                 </div>
                 <div class='col-xl-2 col-lg-4 col-md-6 col-sm-6 d-flex flex-row justify-content-center align-items-center p-0 my-2 selectpack' id='pack2'>                    
-                    <input class='mx-2' type='checkbox' name='pack2' id='check2'>                    
+                    <input class='mx-2 selectpack' type='checkbox' name='pack2' id='check2'>                    
                     <p>Pack 2</p>
                 </div>
                 <div class='col-xl-2 col-lg-4 col-md-6 col-sm-6 d-flex flex-row justify-content-center align-items-center p-0 my-2 selectpack' id='pack3'>                    
-                    <input class='mx-2' type='checkbox' name='pack3' id='check3'>                    
+                    <input class='mx-2 selectpack' type='checkbox' name='pack3' id='check3'>                    
                     <p>Pack 3</p>
                 </div>
                 <div class='col-xl-2 col-lg-4 col-md-6 col-sm-6 d-flex flex-row justify-content-center align-items-center p-0 my-2 selectpack' id='pack4'>                    
-                    <input class='mx-2' type='checkbox' name='pack4' id='check4'>                    
+                    <input class='mx-2 selectpack' type='checkbox' name='pack4' id='check4'>                    
                     <p>Pack 4</p>
                 </div>
                 <div class='col-xl-2 col-lg-4 col-md-6 col-sm-6 d-flex flex-row justify-content-center align-items-center p-0 my-2 selectpack' id='pack5'>                    
-                    <input class='mx-2' type='checkbox' name='pack5' id='check5'>                    
+                    <input class='mx-2 selectpack' type='checkbox' name='pack5' id='check5'>                    
                     <p>Pack 5</p>
                 </div>
                 <div class='col-xl-2 col-lg-4 col-md-6 col-sm-6 d-flex flex-row justify-content-center align-items-center p-0 my-2 selectpack' id='pack6'>                    
-                    <input class='mx-2' type='checkbox' name='pack6' id='check6'>                    
+                    <input class='mx-2 selectpack' type='checkbox' name='pack6' id='check6'>                    
                     <p>Pack 6</p>
                 </div>
             </div>
@@ -140,7 +140,8 @@
                     <button type='button' class='mybtn edit-cancel mx-3'>Cancel</button>
                 </div>
                 <div>
-                    <h5 class='m-0' id='edit-total'></h5>
+                    <h5 class='mb-2' id='edit-time'></h5>
+                    <h5 class='mt-2' id='edit-total'></h5>
                 </div>
             </div>
         </form>

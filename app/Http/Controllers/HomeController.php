@@ -65,7 +65,7 @@ class HomeController extends Controller
     {
         $usersData = User::get();
 
-        return response()->json(['response'=>'ok','user' => $usersData, 'usersCount' => $usersData->count()]);
+        return response()->json(['users' => $usersData, 'usersCount' => $usersData->count()]);
     }
 
 }

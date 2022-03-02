@@ -152,6 +152,47 @@ $(document).ready(function(){
     });
 
 
+
+    // SELECT CHECKBOX
+    $('.selectpack').click(function(){
+        let pack = $(this).attr('id');
+        let total = 0;
+        let time = 0;
+
+        for (let i = 1; i <= 6; i++){
+            if (((pack == 'pack'+i) || (pack == 'check'+i))&& ($('#check'+i).is(':checked') == false))
+                $('#check'+i).prop("checked", true);
+            else if ((pack == 'pack'+i) && ($('#check'+i).is(':checked') == true))
+                $('#check'+i).prop("checked", false);
+        }
+
+        for (let i = 1; i <= 6; i++)
+            if ($('#check'+i).is(":checked") == true){
+                total = total + priceForService[i-1];
+                time = time + timeForService[i-1];
+            }
+
+        let h = parseInt(time / 60);
+        let m = time % 60;
+        $('#edit-time').html('Time: ' + h +'h ' + m + 'min');
+        $('#edit-total').html('Total: ' + total + ' LEI');
+    });
+
+
+
+    // SELECT OPTION
+    $('#select-year').click(function(){
+        for (let i=0; i<10; i++){
+            let select = document.getElementById('select-year');
+            let option = document.createElement('option');
+            option.value = i;
+            option.text = i;
+            select.appendChild(option);
+        }
+    });
+
+
+
     // CLOSE EDIT WINDOW  ======================================================================================
     $('#edit-close').click(function(){
         CloseEdit();
@@ -168,6 +209,7 @@ $(document).ready(function(){
     $('.edit-apply').click(function(){
         CloseEdit();
         CloseList();
+        ApplyEdit(editId);
         DrawCalendar(firstDayOfMonth, daysInMonth, currentYear, currentMonth, currentDay, user);
     });
 
@@ -354,6 +396,34 @@ function CloseEdit()
         while (list_items.firstChild) {
             list_items.removeChild(list_items.firstChild);
         }
+        list_items = document.getElementById('select-year');
+        while (list_items.firstChild) {
+            list_items.removeChild(list_items.firstChild);
+        }
+        list_items = document.getElementById('select-month');
+        while (list_items.firstChild) {
+            list_items.removeChild(list_items.firstChild);
+        }
+        list_items = document.getElementById('select-day');
+        while (list_items.firstChild) {
+            list_items.removeChild(list_items.firstChild);
+        }
+        list_items = document.getElementById('select-start-hour');
+        while (list_items.firstChild) {
+            list_items.removeChild(list_items.firstChild);
+        }
+        list_items = document.getElementById('select-start-min');
+        while (list_items.firstChild) {
+            list_items.removeChild(list_items.firstChild);
+        }
+        list_items = document.getElementById('select-end-hour');
+        while (list_items.firstChild) {
+            list_items.removeChild(list_items.firstChild);
+        }
+        list_items = document.getElementById('select-end-min');
+        while (list_items.firstChild) {
+            list_items.removeChild(list_items.firstChild);
+        }
 
         $('#client-name').val('');
         $('#client-phone').val('');
@@ -363,6 +433,53 @@ function CloseEdit()
         $('#edit-total').html('Total: ');
     });
 }
+
+
+
+
+
+// APPLY EDIT WINDOW ===========================================================================================
+function ApplyEdit(editId)
+{
+
+    let edit_user = $('#select-user').val();
+    let edit_client_name = $('#client-name').val();
+    let edit_client_phone = $('#client-phone').val();
+    let edit_year = $('#select-year').val();
+    let edit_month = $('#select-month').val();
+    let edit_day = $('#select-day').val();
+    let edit_start_at = $('#select-start-hour').val() + ':' + $('#select-start-min').val();
+    let edit_end_at = $('#select-end-hour').val() + ':' + $('#select-end-min').val();
+    let edit_package = [];
+
+    for (let i=1; i<=countServices; i++)
+        if ($('#check'+i).is(':checked')) edit_package[i] = 1;
+        else                              edit_package[i] = 0;
+
+    $.ajax({
+        type:'get',
+        url:'/apply-edit',
+        data: {
+            id: editId,
+            user: edit_user, 
+            client_name: edit_client_name,
+            client_phone: edit_client_phone,
+            year: edit_year,
+            month: edit_month,
+            day: edit_day,
+            start_at: edit_start_at,
+            end_at: edit_end_at,
+            package: edit_package,
+            countPackage: countServices
+        },
+        success: function(data){
+            // alert(data.status);
+        }
+    });
+}
+
+
+
 
 
 

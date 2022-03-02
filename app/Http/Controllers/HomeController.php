@@ -33,7 +33,7 @@ class HomeController extends Controller
 
 
 
-    public function getAppointmentData(Request $request)
+    public function GetAppointmentData(Request $request)
     {
         $appData = UserAppointment::where('user', $request['user'])->where('year', $request['year'])->where('month', $request['month'])->where('day', $request['day'])->get();
         $appData = $appData->sortBy('start_at')->values();
@@ -45,7 +45,7 @@ class HomeController extends Controller
     }
 
 
-    public function getAppointmentDays(Request $request)
+    public function GetAppointmentDays(Request $request)
     {
         $appDays = UserAppointment::where('user', $request['user'])->where('year', $request['year'])->where('month', $request['month'])->select('day')->get();
 
@@ -53,15 +53,37 @@ class HomeController extends Controller
     }
 
 
-    public function removeApp(Request $request)
+    public function RemoveApp(Request $request)
     {
         UserAppointment::where('user', $request['user'])->where('id', $request['id'])->delete();
 
         return response()->json(['status' => 'ok']);
     }
+
+
+
+    public function ApplyEdit(Request $request)
+    {
+        UserAppointment::where('id', $request['id'])
+        ->update(['user' => $request['user'], 
+                  'client_name' => $request['client_name'],
+                  'client_phone' => $request['client_phone'],
+                  'year' => $request['year'],
+                  'month' => $request['month'],
+                  'day' => $request['day'],
+                  'start_at' => $request['start_at'],
+                  'end_at' => $request['end_at'],
+                ]);
+
+        for ($i = 1; $i <= intval($request['countPackage']); $i++)
+            UserAppointment::where('id', $request['id'])->update(['package_'.strval($i) => $request['package'][$i]]); 
+                
+        return response()->json(['status' => 'ok']);
+    }
+
     
 
-    public function getUsersData()
+    public function GetUsersData()
     {
         $usersData = User::get();
 
